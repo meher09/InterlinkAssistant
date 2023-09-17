@@ -25,13 +25,7 @@ Using a virtual environment for Python projects is a best practice as it helps m
 3. Choose "Virtual Environment".
 4. Click "OK" to create the virtual environment.
 
-### Install Required Dependencies
 
-To install the necessary packages for the Content Interlink Suggester, run the following command:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Download or Clone the Repository
 
@@ -51,6 +45,16 @@ If you have Git installed on your system, you can clone the repository using the
 ```bash
 git clone https://github.com/meher09/InterlinkAssistant.git
 ```
+
+## Install Required Dependencies
+
+To install the necessary packages for the Content Interlink Suggester, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
+
 
 ## Adding Links to `urls.txt`
 
