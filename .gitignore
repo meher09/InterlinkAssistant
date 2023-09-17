@@ -1,0 +1,27 @@
+# PyCharm specifics
+.idea/
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Others
+*.log
+*.swp
+*.swo
+
+# Databases
+*.sqlite3
+
+# Files
+no_suggestions.txt
