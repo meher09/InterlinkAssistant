@@ -1,3 +1,4 @@
+import chardet
 import requests
 import asyncio
 import aiohttp
@@ -21,14 +22,23 @@ while True:
         print("Invalid input. Please enter a valid percentage.")
 
 
+async def fetch_url(session, url, retries=3, delay=5):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+    }
+    for attempt in range(retries):
+        try:
+            async with session.get(url, headers=headers) as response:
+                return await response.text()
+        except Exception as e:
+            if attempt < retries - 1:  # i.e. not the last attempt
+                logging.warning(f"Issue fetching {url}. Retrying in {delay} seconds...")
+                await asyncio.sleep(delay)
+                continue
+            else:
+                logging.error(f"Error fetching content from {url}: {e}")
+                return None
 
-async def fetch_url(session, url):
-    try:
-        async with session.get(url) as response:
-            return await response.text()
-    except Exception as e:
-        logging.error(f"Error fetching content from {url}: {e}")
-        return None
 
 
 # Step 1: Fetch content from provided URLs
